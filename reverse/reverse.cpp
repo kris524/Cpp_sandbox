@@ -1,6 +1,7 @@
-#include "reverse_string.h"
+#include "reverse.h"
 #include <algorithm>
 #include <string>
+#include <iostream>
 namespace reverse_string
 {
     std::string reverse_string(std::string string)
@@ -9,3 +10,8 @@ namespace reverse_string
         return string;
     }
 } // namespace reverse_string
+
+int main() {
+    std::cout << reverse_string::reverse_string("ABC") << std::endl;
+    return 0;
+}
