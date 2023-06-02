@@ -12,6 +12,6 @@ namespace reverse_string
 } // namespace reverse_string
 
 int main() {
-    std::cout << reverse_string::reverse_string("ABC") << std::endl;
+    std::cout << reverse_string::reverse_string("QERQWE") << std::endl;
     return 0;
-}
+} 
