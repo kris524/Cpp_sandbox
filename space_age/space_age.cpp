@@ -11,17 +11,39 @@ namespace space_age {
     const int uranus_sec = 84.016846 * earth_sec;
     const int neptune_sec = 164.79132 * earth_sec;
 
-    class space_age {
+   long space_age::space_age(long sec) : sec(sec) {}
 
-    public:
-        space_age(double sec) {
-        }
+   long long space_age::seconds() const {
+    return (sec);
+   }
 
-        double on_earth() {
-            return sec/earth_sec;
-        }
-        
-    }
+   double space_age::on_earth() const {
+    return (sec/earth_sec)
+   }
+
+   double space_age::on_mercury() const {
+    return (sec/mercury_sec)
+   }
+   double space_age::on_venus() const {
+    return (sec/venus_sec)
+   }
+   double space_age::on_mars() const {
+    return (sec/mars_sec)
+   }
+   double space_age::on_jupyter() const {
+    return (sec/jupyter_sec)
+   }
+   double space_age::on_saturn() const {
+    return (sec/saturn_sec)
+   }
+   double space_age::on_uranus() const {
+    return (sec/uranus_sec)
+   }
+   double space_age::on_jupyter() const {
+    return (sec/jupyter_sec)
+   }
+
+
     
     
 }  // namespace space_age
