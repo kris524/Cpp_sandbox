@@ -1,13 +1,14 @@
 #include "raindrops.h"
 #include <string>
+#include <variant>
 
 namespace raindrops
 {
 
-    std::string res = "";
-
     std::string convert(int x)
     {
+        std::string res = "";
+
         if (x % 3 == 0)
         {
             res += "Pling";
@@ -20,7 +21,10 @@ namespace raindrops
         {
             res += "Plong";
         }
-        
+        if (res =="") {
+            res = std::to_string(x);
+        }
+
         return res;
     }
 

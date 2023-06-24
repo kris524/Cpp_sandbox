@@ -3,7 +3,7 @@
 #include <string>
 
 namespace raindrops {
-    std::string convert(int x)
+    std::string convert(int x);
 }  // namespace raindrops
 
 #endif // RAINDROPS_H
