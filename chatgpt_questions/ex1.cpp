@@ -5,18 +5,12 @@ using namespace std;
 
 int* reverseArray(int* array, int size){
     
-    int reversed_array[size];
-    
-    
-    int* res = reversed_array;
-
-    // int values = *array;
+    int* reversed_array = new int[size];
+   
     stack<int> stack;
     for (int i=0; i<size; i++){
         stack.push(array[i]);
     }
-    // std::cout << stack;
-
 
     int index = 0;
     while (!stack.empty()){
@@ -24,7 +18,7 @@ int* reverseArray(int* array, int size){
         stack.pop();
     }
     
-    return res;
+    return reversed_array;
 
 
 }
@@ -41,4 +35,6 @@ int main(){
     for (int i = 0; i < size; i++)
         std::cout << reversed[i] << " ";
     std::cout << "\n";
+
+    delete[] reversed;
 }
