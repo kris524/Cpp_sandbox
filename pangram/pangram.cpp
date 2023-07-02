@@ -1,4 +1,6 @@
 #include "pangram.h"
+#include <algorithm>
+#include <cctype>
 #include <iostream>
 #include <set>
 #include <string>
@@ -9,8 +11,11 @@ std::set<char> Set;
 
 bool is_pangram(std::string str) {
 
-  for (int i = 0; i < str.size(); i++) {
-    Set.insert(str.at(i));
+  for (std::string::size_type i = 0; i < str.size(); i++) {
+    char s = std::tolower(str.at(i));
+    if (std::isalpha(s)) {
+      Set.insert(s);
+    }
   }
   if (Set.size() == 26) {
     return true;
