@@ -10,13 +10,13 @@ using namespace std;
 namespace grade_school {
 
 class school {
-public:
-  void add(std::string a, int x);
-  std::map<int, std::vector<std::string> > roster() const;
-  std::vector<std::string> grade(int x);
+  std::map<int, std::vector<std::string>> result;
 
-private:
-  std::map<int, std::vector<std::string> > result;
+public:
+  school() = default;
+  void add(const std::string a, int x);
+  std::map<int, std::vector<std::string>> roster() const;
+  std::vector<std::string> grade(int x) const;
 };
 
 } // namespace grade_school
