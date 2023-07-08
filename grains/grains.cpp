@@ -3,15 +3,8 @@
 
 #include "grains.h"
 
-namespace grains
-{
+namespace grains {
 
-    unsigned long long square(int x)
-    {
-        return pow(2, x - 1);
-    }
-    unsigned long long total()
-    {
-        return (1ULL << 63)*2 -1;
-    }
+unsigned long long square(int x) { return pow(2, x - 1); }
+unsigned long long total() { return (1ULL << 63) * 2 - 1; }
 } // namespace grains
