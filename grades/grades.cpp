@@ -28,9 +28,9 @@ vector<string> school::grade(int x) const {
 
 int main() {
   auto a = grade_school::school();
-  a.add("Josh", 1); 
+  a.add("Josh", 1);
   map<int, vector<string>> my_map = {{1, {"Josh"}}};
-  if (a.roster() == my_map){
-    cout<< "true"<<endl;
+  if (a.roster() == my_map) {
+    cout << "true" << endl;
   }
 }
