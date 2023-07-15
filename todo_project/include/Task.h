@@ -1,10 +1,16 @@
-#if !defined(RAINDROPS_H)
-#define RAINDROPS_H
+#if !defined(TASK_H)
+#define TASK_H
+#include <iostream>
 #include <string>
+#include <vector>
+using namespace std;
 
-void add(std::string);
+namespace todo {
+
+void add(string);
 
 void show();
 
+} // namespace todo
 
-#endif // RAINDROPS_H
+#endif // TASK_H

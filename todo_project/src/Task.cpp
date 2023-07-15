@@ -1,18 +1,28 @@
+#include "../include/Task.h"
+#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
 using namespace std;
 
-vector<string> global_vec;
+namespace todo {
 
 void add(string A) {
-    global_vec.push_back(A);
+  ofstream file;
+  file.open("task.txt", ios::app);
+  file << A << "\n";
+  file.close();
 }
 
-void show(){
-    for (const auto &elem : global_vec ){
-        cout<< elem << " ";
+void show() {
+  string line;
+  ifstream file("task.txt");
+  if (file.is_open()) {
+    while (getline(file, line)) {
+      cout << line << "\n";
     }
-
+    file.close();
+  } else
+    cout << "Unable to open file";
 }
-
+} // namespace todo
