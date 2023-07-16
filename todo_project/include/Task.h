@@ -11,6 +11,8 @@ void add(string);
 
 void show();
 
+void clear();
+
 } // namespace todo
 
 #endif // TASK_H

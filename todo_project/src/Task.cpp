@@ -25,4 +25,15 @@ void show() {
   } else
     cout << "Unable to open file";
 }
+void clear() {
+  ofstream ofs;
+  ofs.open("task.txt", ofstream::out | ofstream::trunc);
+  ofs.close();
+}
+
+
+void remove_task(int x){
+    
+}
+
 } // namespace todo
