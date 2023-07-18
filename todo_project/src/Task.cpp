@@ -31,9 +31,17 @@ void clear() {
   ofs.close();
 }
 
-
-void remove_task(int x){
-    
+void remove_task(int x) {
+  ifstream file("task.txt");
+  if (file.is_open()) {
+    string line;
+    for (int ln = 1; getline(file, line); ln++) {
+      if (ln == x) {
+        line.replace(line.find(line), line.length(), "");
+      }
+    }
+    file.close();
+  }
 }
 
 } // namespace todo

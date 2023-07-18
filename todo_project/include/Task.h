@@ -12,6 +12,7 @@ void add(string);
 void show();
 
 void clear();
+void remove_task(int);
 
 } // namespace todo
 

@@ -15,12 +15,20 @@ int main(int argc, char **argv) {
   }
 
   else if (argc > 2) {
-    string arg1 = argv[1];
 
+    string arg1 = argv[1];
     string arg2 = argv[2];
 
     if (arg1 == "add") {
-      todo::add(arg2);
+
+      if (arg1 == "add") {
+        todo::add(arg2);
+      }
+    }
+
+    else if (arg1 == "remove_task") {
+      int x = stoi(arg2);
+      todo::remove_task(x);
     }
   }
 }
