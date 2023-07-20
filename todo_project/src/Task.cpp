@@ -32,7 +32,6 @@ void clear() {
 }
 
 void remove_task(int x) {
-  string filename;
 
   fstream read_file;
   read_file.open("task.txt");
@@ -58,9 +57,27 @@ void remove_task(int x) {
   write_file.close();
 }
 
-
-void complete(int x){
-    
+void complete(int x) {
+  fstream readfile;
+  readfile.open("task.txt");
+  vector<string> lines;
+  string line;
+  while (getline(readfile, line)) {
+    lines.push_back(line);
+  }
+  readfile.close();
+  if (x > lines.size()) {
+    cout << "Line is out of range" << endl;
+  }
+  ofstream write;
+  write.open("task.txt");
+  for (int i = 0; i < lines.size(); i++) {
+    if (i == x) {
+      lines[i].replace(0, 4, "DONE");
+    }
+    write << lines[i] << endl;
+  }
+  write.close();
 }
 
 } // namespace todo

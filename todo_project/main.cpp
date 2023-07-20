@@ -29,6 +29,9 @@ int main(int argc, char **argv) {
     else if (arg1 == "remove_task") {
       int x = stoi(arg2);
       todo::remove_task(x);
+    } else if (arg1 == "complete") {
+      int x = stoi(arg2);
+      todo::complete(x);
     }
   }
 }

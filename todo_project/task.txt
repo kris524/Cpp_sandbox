@@ -1,4 +1,5 @@
-TODO: Take out the dog
+DONE: Take out the dog
 TODO: Take out the trash
 TODO: Take out the milk
-TODO: Take out the shower
+DONE: Take out the shower
+DONE: Take out cat
