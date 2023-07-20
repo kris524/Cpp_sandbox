@@ -1,3 +1,4 @@
-A
-C
-D
+TODO: Take out the dog
+TODO: Take out the trash
+TODO: Take out the milk
+TODO: Take out the shower

@@ -10,7 +10,7 @@ namespace todo {
 void add(string A) {
   ofstream file;
   file.open("task.txt", ios::app);
-  file << A << "\n";
+  file << "TODO: " << A << "\n";
   file.close();
 }
 
@@ -44,7 +44,7 @@ void remove_task(int x) {
   read_file.close();
 
   if (x > lines.size()) {
-    cout << "Line is out of range";
+    cout << "Line is out of range" << endl;
   }
 
   ofstream write_file;
@@ -56,6 +56,11 @@ void remove_task(int x) {
   }
 
   write_file.close();
+}
+
+
+void complete(int x){
+    
 }
 
 } // namespace todo
