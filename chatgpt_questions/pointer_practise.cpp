@@ -9,7 +9,7 @@ int *findMinimum(int arr[], int size) {
   }
   return min;
 }
-
+    
 int main() {
   int numbers[] = {10, 5, 8, 3, 12, 7};
   int size = sizeof(numbers) / sizeof(numbers[0]);
