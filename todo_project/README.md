@@ -12,3 +12,9 @@ View all tasks: Users can view all the tasks in their todo list, including their
 This project will allow you to practice various aspects of C++, including working with classes, data structures, file I/O, string manipulation, and user input handling. It will also give you an opportunity to design and implement a small-scale application from scratch.
 
 Remember to break down the project into smaller tasks, plan your code structure, and test your application thoroughly. Happy coding!
+
+
+---
+More or less complete, not perfect but I learned a lot, Feedback:
+- Separate file paths and filenames from functions: Hardcoding file paths and filenames within the functions may make it harder to change or reuse the code in different contexts. Consider passing the filename as an argument to the functions or use a configuration file to store this information.
+- Avoid using using namespace std;
