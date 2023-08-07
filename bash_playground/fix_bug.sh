@@ -1,14 +1,43 @@
+#!/bin/bash
 
-os=Fedora
+function read_numbers(){
+        read -p "Enter Number1: " number1
+        read -p "Enter Number2: " number2
+}
 
-case $os in
-  "Fedora") echo "Uses RPM package manager" ;;
 
-  "RHEL") echo "Uses RPM package manager" ;;
+while true
+do
+  echo "1. Add"
+  echo "2. Subtract"
+  echo "3. Multiply"
+  echo "4. Divide"
+  echo "5. Quit"
 
-  "CentOS") echo "Uses RPM package manager" ;;
+  read -p "Enter your choice: " choice
 
-  "Debian") echo "Uses DEB package manager" ;;
 
-  "Ubuntu") echo "Uses DEB package manager" ;;
-esac
+  case $choice in
+    1)
+        read_numbers 
+        echo Answer=$(( $number1 + $number2 ))
+        ;;
+    2)
+        read_numbers
+        echo Answer=$(( $number1 - $number2 ))
+        ;;
+
+    3)
+        read_numbers
+        echo Answer=$(( $number1 * $number2 ))
+        ;;
+    4)
+        read_numbers
+        echo Answer=$(( $number1 / $number2 ))
+        ;;
+    5)
+        break
+        ;;
+  esac
+
+done
