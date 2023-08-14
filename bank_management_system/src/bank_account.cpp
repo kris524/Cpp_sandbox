@@ -11,6 +11,15 @@ void BankAccount::deposit(int money){
         }
 
 int BankAccount::show_statement(){
-            // current_ammount += 5;
+            
             return current_ammount;
         }
+
+std::string BankAccount::show_details(){
+            std::string result = name + " " + date_of_birth;
+            return result;
+}
+
+void BankAccount::withdraw(int money){
+    current_ammount -= money;
+}

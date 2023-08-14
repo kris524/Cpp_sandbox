@@ -11,7 +11,6 @@ class BankAccount {
         int current_ammount;
 
     public:
-        // BankAccount(){};
         BankAccount(std::string const& name, std::string const& date_of_birth, int const& current_ammount){
             BankAccount::name=name;
             BankAccount::date_of_birth=date_of_birth;
@@ -19,6 +18,9 @@ class BankAccount {
         };
         void deposit(int money);
         int show_statement();
+        std::string show_details();
+
+        void withdraw(int money);
 }; 
 
 
