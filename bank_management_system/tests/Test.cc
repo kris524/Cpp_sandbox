@@ -2,8 +2,9 @@
 #include "../include/bank_account.h"
 
 
-TEST(Test, FirstTest){
+TEST(MyClassTest, FirstTest){
     BankAccount test_ba("Josh", "1.1.1222", 4);
-    EXPECT_EQ(test_ba.show_statement(), 4);
+    int value = test_ba.show_statement();
+    EXPECT_EQ(value, 4);
 
 }

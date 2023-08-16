@@ -14,6 +14,8 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+add_library(myproject_lib ../src/bank_account.cpp)
+
 enable_testing()
 
 add_executable(
@@ -25,6 +27,8 @@ add_executable(
   Test
   Test.cc
 )
+
+target_link_libraries(Test gtest gtest_main myproject_lib)
 
 target_link_libraries(
   hello_test
