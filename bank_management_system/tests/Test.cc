@@ -15,3 +15,18 @@ TEST(MyClassTest, SecondTest){
     EXPECT_EQ(value, "Josh 1.1.1222");
 
 }
+
+TEST(MyClassTest, ThirdTest){
+    BankAccount test_ba("Josh", "1.1.1222", 4);
+    test_ba.deposit(5);
+    int value = test_ba.show_statement();
+    EXPECT_EQ(value, 9);
+
+}
+
+TEST(MyClassTest, ForthTest){
+    BankAccount test_ba("Josh", "1.1.1222", 4);
+    test_ba.withdraw(3);
+    int value = test_ba.show_statement();
+    EXPECT_EQ(value, 1);
+}
