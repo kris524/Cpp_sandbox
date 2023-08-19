@@ -21,5 +21,7 @@ std::string BankAccount::show_details(){
 }
 
 void BankAccount::withdraw(int money){
-    current_ammount -= money;
+    if (current_ammount >= money) { //cant withdraw more than current ammount
+        current_ammount -= money;
+    }
 }

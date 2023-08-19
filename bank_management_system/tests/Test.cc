@@ -30,3 +30,10 @@ TEST(MyClassTest, ForthTest){
     int value = test_ba.show_statement();
     EXPECT_EQ(value, 1);
 }
+
+TEST(MyClassTest, FifthTest){
+    BankAccount test_ba("Josh", "1.1.1222", 4);
+    test_ba.withdraw(5);
+    int value = test_ba.show_statement();
+    EXPECT_EQ(value, 4);
+}
