@@ -1,6 +1,5 @@
-
-
 #include <iostream>
+#include "book.hpp"
 
 int main(){
     int choice;
@@ -13,8 +12,7 @@ int main(){
         std::cout<< "5. Exit" << std::endl;
 
         std::cin>> choice ;
-        
-        
+
         if(choice==5){
             break;
         }
