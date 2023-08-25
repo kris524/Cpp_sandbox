@@ -17,30 +17,33 @@ int main(){
 
         std::cin>> choice ;
 
+        switch(choice){
 
-        if(choice==1){
-            std::string author;
-            std::cout<< "Enter Author Name: ";
-            std::cin>> author;
+            case 1: cin.ignore();
+                    std::string author;
+                    std::cout<< "Enter Author Name: ";
+                    std::cin>> author;
+                    
+                    std::string title;
+                    std::cout<< "Enter Title: ";
+                    std::cin>> title;
+        
+                    std::string publisher;
+                    std::cout<< "Enter Publisher: ";
+                    std::cin>> publisher;
+                    
+                    float price;
+                    std::cout<< "Enter price: ";
+                    std::cin>> price;
+                    
+                    database.add_book(author, title, publisher, price);
+
+                    break;
+
+
             
-            std::string title;
-            std::cout<< "Enter Title: ";
-            std::cin>> title;
- 
-            std::string publisher;
-            std::cout<< "Enter Publisher: ";
-            std::cin>> publisher;
-            
-            float price;
-            std::cout<< "Enter price: ";
-            std::cin>> price;
-            
-            database.add_book(author, title, publisher, price);
         }
 
-        if(choice==5){
-            break;
-        }
     
     }
         
