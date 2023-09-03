@@ -4,22 +4,19 @@
 
 class Resource{
     public:
-        Resource() = default;
+        Resource() : my_arr(nullptr), size(0) {};
 
-        Resource(int size){
-            int* my_arr = new int[size];
-        }
+        Resource(int size) : my_arr(new int [size]), size(size) {};
 
-        Resource(Resource&& other) noexcept{
-            size = other.size;
-            my_arr = other.my_arr;
-
+        //move constructor
+        Resource(Resource&& other) noexcept : my_arr(std::move(other.my_arr)), size(other.size)  {
+            std::cout<<"Move!"<<std::endl;
             other.size = 0;
             other.my_arr = nullptr;
         }
 
         ~Resource() {
-            delete [] my_arr;
+            delete[] my_arr;
         }
 
         int* getData(){
@@ -32,10 +29,24 @@ class Resource{
     private:
         int* my_arr;
         int size;
-}
+};
 
 
 void demonstrateMoveSemantics(){
+        Resource A(10);
+        int* data = A.getData();
+
+        std::cout<<"A Size " <<A.getSize() <<std::endl;
+        std::cout<<"A Array Address " <<A.getData() <<std::endl;
+
+
+        Resource B(std::move(A));
+
+        std::cout<< "B Size " << B.getSize() <<std::endl;
+        std::cout<<"B Array Address " <<B.getData() <<std::endl;
+        
+        std::cout<<"A Size " <<A.getSize() <<std::endl;
+        std::cout<<"A Array Address " <<A.getData() <<std::endl;
 
 }
 
