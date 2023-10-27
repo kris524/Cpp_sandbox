@@ -1,0 +1,11 @@
+
+
+
+class Auctioneer {
+
+}
+
+
+class Bidder {
+    
+}

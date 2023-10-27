@@ -5,7 +5,9 @@ class DynamicArray {
         DynamicArray() : data(nullptr), size(0) {};
 
         DynamicArray(int size) : data(new int [size]), size(size) {};
-      
+
+
+        // copy constructor      
         DynamicArray(const DynamicArray& other) {
             std::cout << "Copy constructor called " << std::endl;
             data = new int [other.size];
@@ -14,6 +16,8 @@ class DynamicArray {
                 data[i] = other.data[i];
             }
         };
+
+        //copy assingment
         DynamicArray& operator=(const DynamicArray& other) {
             std::cout << "Assignment operator called " << std::endl;
             if (this != &other){
@@ -51,7 +55,10 @@ int main(){
     A.printArray();
 
     DynamicArray B;
-    // B = A;
+    B = A;
+    B.printArray();
+
+
     DynamicArray C = A;
 
     C.printArray();
