@@ -4,54 +4,67 @@
 #include <string>
 
 class Document {
-    virtual std::vector<std::string> createPages() {}
+    public:
+        virtual std::vector<std::string> createPages() {}
 
 };
 
 
 class Resume : public Document {
-
-    std::vector<std::string> createPages() override {
-        return {"A", "B", "C"};
-    };
+    public:
+        std::vector<std::string> createPages() override {
+            return {"A", "B", "C"};
+        };
 };
 
 class Report : public Document {
-    std::vector<std::string> createPages() override {
-        return {"1", "3", "5"};
-    };
+    public:
+        std::vector<std::string> createPages() override {
+            return {"1", "3", "5"};
+        };
 };
 
 class DocumentCreator{
     public:
         virtual std::unique_ptr<Document> create_document() {}
 
-        virtual void operation() {
-            auto a = this->create_document();
-            *a.createPages()
+        virtual std::vector<std::string> operation() {
+            auto doc = this->create_document();
+            return  doc->createPages();
         }
 
 };
 
 class ResumeFactory : public DocumentCreator{
-
-    std::unique_ptr<Document> create_document() override {
-        return std::make_unique<Resume>();
-    }
+    public:
+        std::unique_ptr<Document> create_document() override {
+            std::cout<< "Created a Resume" << std::endl;
+            return std::make_unique<Resume>();
+        }
 
 };
 
 class ReportFactory : public DocumentCreator {
-    
-    std::unique_ptr<Document> create_document() override {
-        return std::make_unique<Report>();
-    }
+    public:
+        std::unique_ptr<Document> create_document() override {
+            std::cout<< "Created a Report" << std::endl;
+            return std::make_unique<Report>();
+        }
 };
 
 
 
 int main() {
-    ResumeFactory resume_facttory;
+    ResumeFactory resume_factory;
+    ReportFactory report_factory;
 
+    // resume_factory.create_document();
+    // report_factory.create_document();
+
+    auto resume_pages = resume_factory.operation();
+
+    for (const auto& number : resume_pages) {
+        std::cout << number << " ";
+    };
 
 }
