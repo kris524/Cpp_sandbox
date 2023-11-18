@@ -6,7 +6,7 @@ class Character {
     public:
         virtual void attack(){}
 
-        virtual defence(){}
+        virtual void defence(){}
 
 };
 
@@ -67,11 +67,62 @@ class OrcWarrior : public Character {
 
 
 
-class CharacterFactory{
+class CharacterFactory {
 
     public:
-        virtual create_character{
-            
-        }
+        virtual std::unique_ptr<Character> create_warrior(){};
+        virtual std::unique_ptr<Character> create_mage() {};
+
+};
+
+
+
+class HumanCharacterFactory : public CharacterFactory {
+    public:
+       std::unique_ptr<Character> create_warrior() {        
+            return std::make_unique<HumanWarrior>();
+        };
+        std::unique_ptr<Character> create_mage() {
+            return std::make_unique<HumanMage>();
+        };
+
+};
+
+class OrcCharacterFactory : public CharacterFactory {
+    public:
+       std::unique_ptr<Character> create_warrior() {        
+            return std::make_unique<OrcWarrior>();
+        };
+        std::unique_ptr<Character> create_mage() {
+            return std::make_unique<OrcMage>();
+        };
+};
+
+
+void Client(CharacterFactory &factory ) {
+
+        auto warrior = factory.create_warrior();
+        auto mage = factory.create_mage();
+
+        warrior->attack();
+        warrior->defence();
+
+        mage->attack();
+        mage->defence();
+
+}
+
+int main() {
+
+    OrcCharacterFactory* orc_factory = new OrcCharacterFactory();
+    Client(*orc_factory); 
+
+    delete orc_factory;
+
+
+    HumanCharacterFactory* human_factory = new HumanCharacterFactory();
+    Client(*human_factory); 
+
+    delete human_factory;
 
 }
