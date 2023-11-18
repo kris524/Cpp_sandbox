@@ -62,8 +62,14 @@ int main() {
     // report_factory.create_document();
 
     auto resume_pages = resume_factory.operation();
+    auto report_pages = report_factory.operation();
+
 
     for (const auto& number : resume_pages) {
+        std::cout << number << " ";
+    };
+
+    for (const auto& number : report_pages) {
         std::cout << number << " ";
     };
 
