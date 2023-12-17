@@ -3,17 +3,40 @@
 
 using namespace std;
 
+
+
+
 int main(int argc, char* argv[]) {
 
     if (argc>2){
-    string count_arg = argv[1];
+    string flag = argv[1];
     string text_file = argv[2];
-        if ( count_arg == "-c"){
+        if ( flag == "-c"){
             
-            ifstream in_file(text_file, ios::binary);
-            in_file.seekg(0, ios::end);
-            int file_size = in_file.tellg();
+            ifstream file(text_file, ios::binary);
+            file.seekg(0, ios::end);
+            int file_size = file.tellg();
             cout<< file_size << " " << text_file << endl;
+        }
+
+        if (flag == "-l") {
+            ifstream file(text_file);
+            int line_count = 0;
+            string line;
+            while(getline(file, line)){
+                line_count+=1;
+            }
+
+            cout<< line_count << " " << text_file << endl;
+        }
+
+        if (flag == "-w") {
+            ifstream file(text_file);
+            int line_count = 0;
+
+            for(string line; getline(text_file, line, ' ');)
+                cout << line << endl;
+            
         }
     }
 
