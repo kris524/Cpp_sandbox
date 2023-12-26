@@ -1,9 +1,23 @@
 #include<fstream>
 #include<iostream>
+#include<sstream>
 
 using namespace std;
 
 
+int count_words(string sentence) {
+
+    int words = 0;
+    int size = sentence.size();
+
+    for (int i=0; i<size;i++){
+        if (sentence[i] == ' '){
+            words++;
+        }
+    }
+    words  = words + 1;
+    return words;
+}
 
 
 int main(int argc, char* argv[]) {
@@ -32,10 +46,12 @@ int main(int argc, char* argv[]) {
 
         if (flag == "-w") {
             ifstream file(text_file);
-            int line_count = 0;
-
-            for(string line; getline(text_file, line, ' ');)
-                cout << line << endl;
+            int words = 0;
+            string line;
+            while(getline(file, line)){
+                words += count_words(line);
+            }
+            cout << words << endl;   
             
         }
     }
