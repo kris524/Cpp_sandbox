@@ -54,6 +54,17 @@ int main(int argc, char* argv[]) {
             cout << words << endl;   
             
         }
+
+        if (flag == "-m") {
+            ifstream file(text_file);
+            int chr = 0;
+            string line;
+            while(getline(file, line)){
+                chr += line.size();
+            }
+            cout << chr << endl;   
+            
+        }
     }
 
 }
