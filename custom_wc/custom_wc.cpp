@@ -1,22 +1,43 @@
 #include<fstream>
+#include <ios>
 #include<iostream>
 #include<sstream>
+#include<cstring>
+#include <string.h>
+
 
 using namespace std;
 
 
 int count_words(string sentence) {
 
-    int words = 0;
-    int size = sentence.size();
+    int str_len = sentence.size();
+    int count_words = 0;
+    char delimiters[] = " .,;\n\t";
 
-    for (int i=0; i<size;i++){
-        if (sentence[i] == ' '){
-            words++;
+    for(int i=0; i<str_len;i++){
+
+        while (i<str_len){
+
+            if(strchr(delimiters, sentence[i]) != NULL){
+                break;
+            i++;
+            }
         }
+        count_words ++;
+
+        while (i<str_len){
+        
+            if(strchr(delimiters, sentence[i]) == NULL){
+                break;
+
+            i++;
+            }
+        }
+
     }
-    words  = words + 1;
-    return words;
+    return count_words;
+
 }
 
 
@@ -55,16 +76,16 @@ int main(int argc, char* argv[]) {
             
         }
 
-        if (flag == "-m") {
-            ifstream file(text_file);
-            int chr = 0;
-            string line;
-            while(getline(file, line)){
-                chr += line.size();
-            }
-            cout << chr << endl;   
+        // if (flag == "-m") {
+        //     string line;
+        //     int count = 0;
+        //     ifstream file(text_file);
+        //     while(getline(file, line)){
+        //     cout << line << endl;
+
+        //     }
             
-        }
+        // }
     }
 
 }
