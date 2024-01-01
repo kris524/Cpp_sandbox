@@ -93,36 +93,44 @@ int count_characters(string text_file){
 }
 
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {  
+
+    // this is the case for cin
+    if (argc == 2){
+        string first_arg = argv[1]; 
+        string line;
+
+        while(cin){
+            getline(cin, line);
+            cout << line << endl;
+            
+        }
+        
+    }
 
     if (argc>2){
-    string flag = argv[1];
+    string first_arg = argv[1]; 
     string text_file = argv[2];
-        if ( flag == "-c"){
+        if ( first_arg == "-c"){
             cout << byte_count(text_file) << " " << text_file << endl;
         }
 
-        if (flag == "-l") {
+        if (first_arg == "-l") {
             cout << line_count(text_file) << " " << text_file << endl;
         }
 
-        if (flag == "-w") {
+        if (first_arg == "-w") {
             cout << count_words(text_file) << " " << text_file << endl;
         }
 
-        if (flag == "-m") {
+        if (first_arg == "-m") {
             cout << count_characters(text_file) << " " << text_file << endl;
         }
-    }
 
-    else if (argc==2)
-    {
-        /* code */
-        string text_file = argv[1];
-        cout << byte_count(text_file) << " " << line_count(text_file) << " " << count_words(text_file)<< " " << text_file << endl;
+        else {
+            string text_file = argv[1];
+            cout << byte_count(text_file) << " " << line_count(text_file) << " " << count_words(text_file)<< " " << text_file << endl;
+        }
     }
-     
-
-    
 
 }
