@@ -9,7 +9,7 @@
 using namespace std;
 
 
-int count_words(string sentence) {
+int count_words_given_sentence(string sentence) {
 
     int str_len = sentence.size();
     int count_words = 0;
@@ -47,6 +47,51 @@ int count_words(string sentence) {
 
 }
 
+int byte_count(string text_file){
+            
+    ifstream file(text_file, ios::binary);
+    file.seekg(0, ios::end);
+    int file_size = file.tellg();
+    return file_size;
+
+}
+
+int line_count(string text_file){
+    ifstream file(text_file);
+    int line_count = 0;
+    string line;
+    while(getline(file, line)){
+        line_count+=1;
+    }
+
+    return line_count;
+
+}
+
+int count_words(string text_file){
+    ifstream file(text_file);
+    int words = 0;
+    string line;
+    while(getline(file, line)){
+        words += count_words_given_sentence(line);
+    }
+    return words;
+
+}
+
+int count_characters(string text_file){
+    ifstream file(text_file);
+    int char_count = 0;
+    char c;
+    string line;
+    while(getline(file, line)){
+        char_count += line.length();
+    }
+    
+    return char_count;
+
+}
+
 
 int main(int argc, char* argv[]) {
 
@@ -54,45 +99,30 @@ int main(int argc, char* argv[]) {
     string flag = argv[1];
     string text_file = argv[2];
         if ( flag == "-c"){
-            
-            ifstream file(text_file, ios::binary);
-            file.seekg(0, ios::end);
-            int file_size = file.tellg();
-            cout<< file_size << " " << text_file << endl;
+            cout << byte_count(text_file) << " " << text_file << endl;
         }
 
         if (flag == "-l") {
-            ifstream file(text_file);
-            int line_count = 0;
-            string line;
-            while(getline(file, line)){
-                line_count+=1;
-            }
-
-            cout<< line_count << " " << text_file << endl;
+            cout << line_count(text_file) << " " << text_file << endl;
         }
 
         if (flag == "-w") {
-            ifstream file(text_file);
-            int words = 0;
-            string line;
-            while(getline(file, line)){
-                words += count_words(line);
-            }
-            cout << words << endl;   
-            
+            cout << count_words(text_file) << " " << text_file << endl;
         }
 
-        // if (flag == "-m") {
-        //     string line;
-        //     int count = 0;
-        //     ifstream file(text_file);
-        //     while(getline(file, line)){
-        //     cout << line << endl;
-
-        //     }
-            
-        // }
+        if (flag == "-m") {
+            cout << count_characters(text_file) << " " << text_file << endl;
+        }
     }
+
+    else if (argc==2)
+    {
+        /* code */
+        string text_file = argv[1];
+        cout << byte_count(text_file) << " " << line_count(text_file) << " " << count_words(text_file)<< " " << text_file << endl;
+    }
+     
+
+    
 
 }
