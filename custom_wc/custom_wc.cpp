@@ -13,26 +13,33 @@ int count_words(string sentence) {
 
     int str_len = sentence.size();
     int count_words = 0;
-    char delimiters[] = " .,;\n\t";
+    char delimiters[] = " .*[]123456789()_§,;\n\t";
 
     for(int i=0; i<str_len;i++){
 
         while (i<str_len){
-
-            if(strchr(delimiters, sentence[i]) != NULL){
+        
+            if(strchr(delimiters, sentence[i]) == NULL)
                 break;
             i++;
-            }
+
         }
-        count_words ++;
+
+        while (i<str_len)
+        {
+
+            if(strchr(delimiters, sentence[i]) != NULL)
+                break;
+            i++;
+        }
+        count_words++;
 
         while (i<str_len){
         
-            if(strchr(delimiters, sentence[i]) == NULL){
+            if(strchr(delimiters, sentence[i]) == NULL)
                 break;
-
             i++;
-            }
+
         }
 
     }
